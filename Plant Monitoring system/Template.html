@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IoT Dashboard</title>
+        <meta http-equiv="refresh" content="2">
+    </head>
+    <body>
+        <h1>IoT Sensor Dashboard</h1>
+
+        {% if data %}
+            <p>Temperature: {{ data[0] }} °C</p>
+            <p>Humidity: {{ data[1] }} %</p>
+            <p>Soil Moisture: {{ data[2] }}</p>
+            <p>Pump Status: {{ data[3] }}</p>
+        {% endif %}
+
+        <hr>
+
+        <h2>Soil Moisture Analysis</h2>
+
+        <form method="GET">
+            <button type="submit" name="analysis" value="avg">
+                Show Average
+            </button>
+            <button type="submit" name="analysis" value="min">
+                Show Minimum
+            </button>
+            <button type="submit" name="analysis" value="max">
+                Show Maximum
+            </button>
+        </form>
+
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </body>
+</html>
